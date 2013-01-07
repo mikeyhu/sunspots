@@ -1,3 +1,7 @@
+import AssemblyKeys._
+
+assemblySettings
+
 organization := "net.invalidkeyword"
 
 name := "sunspot"
