@@ -1,15 +1,18 @@
 object SunSpotChecker {
 
   def analyse(input : String) : String = {
-    val data = input.split(' ').toIndexedSeq[String].map(a =>a.trim).map(Integer.parseInt(_))
+    analyse(input.split(' ').toIndexedSeq[String].map(a =>a.trim).map(Integer.parseInt(_)))
+  }
+
+  def analyse(data : IndexedSeq[Int]) : String = {
     val resultCount = data.head
     val grid = Grid(data.tail)
     grid.topScores(resultCount).mkString
   }
 
   def main(args: Array[String]) {
-    val input = io.Source.fromFile(args.head).mkString
-    time { println(analyse(input)) }
+    val ir = IntegerReader(args.head).toIndexedSeq
+    time { println(analyse(ir)) }
   }
 
   def time[A](f: => A) = {
